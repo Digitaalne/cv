@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div style="text-align: center">
+            <vue-p5 v-on="{preload, setup, draw}"></vue-p5>
+        </div>
         <h3>Personal Information</h3>
         <hr>
         <div class="row">
@@ -35,6 +38,7 @@
                     <a href="https://www.linkedin.com/in/jarek-jannait-773668163">https://www.linkedin.com/in/jarek-jannait-773668163/</a>
                 </div>
             </div>
+            <!-- Reference: Remember the Name - Fort Minor -->
             <div class="col-md-4" style="text-align: center">
                 <h3>This CV Consist Of: </h3>
                 <pieChart :chartdata="chartData"></pieChart>
@@ -58,7 +62,7 @@
                 <span class="lighter">2017 - ... </span>Tallinn University Of Technology, Bacherlor, Informatics
             </div>
             <div class="row">
-                <span class="lighter">2005 - 2017 </span>Vändra Gymnasium, Secondary Education
+                <span class="lighter">2005 - 2017 </span> Vändra Gymnasium, Secondary Education
             </div>
         </div>
         <h3>Computer Skills</h3>
@@ -80,12 +84,36 @@
     import pieChart from "../components/PieChart.vue"
     import chdata from "../assets/data.json"
     import name from "../assets/name.json"
+    import VueP5 from 'vue-p5';
 
 
     export default {
         name: "cv",
+        methods: {
+            preload(sk){
+                this.img = sk.loadImage('cv.png');
+            },
+            setup(sk) {
+                sk.createCanvas(this.img.width, this.img.height);
+                sk.imageMode(sk.CENTER);
+                sk.noStroke();
+                this.img.loadPixels();
+            },
+            draw(sk){
+
+                this.y++;
+                let randx = sk.floor(sk.random(this.img.width));
+                let randy = sk.floor(sk.random(this.img.height));
+                let pix2 = this.img.get(randx, randy);
+                sk.fill(pix2, 128);
+                sk.ellipse(randx, randy, 15, 15);
+            }
+        },
+        render(h) {
+            return h(VueP5, {on: this});
+        },
         components: {
-            pieChart
+            pieChart, VueP5
         },
         data() {
             return {
@@ -99,9 +127,12 @@
                     {id: 7, name: 'MS Word', level: 'Average'},
                 ],
                 chartData: chdata,
-                nameChart: name
+                nameChart: name,
+                img: '',
+                x: 0,
+                y: 0
             }
-        }
+        },
     }
 </script>
 
