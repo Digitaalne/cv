@@ -1,0 +1,28 @@
+{
+  "labels": [
+    "luck",
+    "skill",
+    "power of will",
+    "pleasure",
+    "pain"
+  ],
+  "datasets": [
+    {
+      "label": "Külastajate % kategooria järgi",
+      "backgroundColor": [
+        "green",
+        "#fff202",
+        "grey",
+        "pink",
+        "red"
+      ],
+      "data": [
+        10,
+        20,
+        15,
+        5,
+        50
+      ]
+    }
+  ]
+}
