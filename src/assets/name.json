@@ -1,0 +1,16 @@
+{
+  "labels": [
+    "reason to remember my name (%)"
+  ],
+  "datasets": [
+    {
+      "label": "Külastajate % kategooria järgi",
+      "backgroundColor": [
+        "blue"
+      ],
+      "data": [
+        100
+      ]
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 {
   "labels": [
-    "luck",
-    "skill",
-    "power of will",
-    "pleasure",
-    "pain"
+    "luck (%)",
+    "skill (%)",
+    "power of will (%)",
+    "pleasure (%)",
+    "pain (%)"
   ],
   "datasets": [
     {

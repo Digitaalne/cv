@@ -3,7 +3,7 @@
         <h3>Personal Information</h3>
         <hr>
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <div class="row">
                     <label>Firstname:</label>
                     Jarek
@@ -35,8 +35,13 @@
                     <a href="https://www.linkedin.com/in/jarek-jannait-773668163">https://www.linkedin.com/in/jarek-jannait-773668163/</a>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-md-4" style="text-align: center">
+                <h3>This CV Consist Of: </h3>
                 <pieChart :chartdata="chartData"></pieChart>
+            </div>
+            <div class="col-md-4 justify-content-center" style="text-align: center">
+                <h3>You Have:</h3>
+                <pieChart :chartdata="nameChart"></pieChart>
             </div>
         </div>
         <h3>Work Experience</h3>
@@ -74,6 +79,8 @@
 <script>
     import pieChart from "../components/PieChart.vue"
     import chdata from "../assets/data.json"
+    import name from "../assets/name.json"
+
 
     export default {
         name: "cv",
@@ -91,7 +98,8 @@
                     {id: 6, name: 'MS Excel', level: 'Average'},
                     {id: 7, name: 'MS Word', level: 'Average'},
                 ],
-                chartData: chdata
+                chartData: chdata,
+                nameChart: name
             }
         }
     }
