@@ -52,14 +52,14 @@
         <hr>
         <div>
             <div class="row">
-                <span class="lighter">07.2018</span> Data Handler @MYJar (Non-IT job)
+                <span class="lighter">07.2018 </span>Data Handler @MYJar (Non-IT job)
             </div>
         </div>
         <h3>Education</h3>
         <hr>
         <div>
             <div class="row">
-                <span class="lighter">2017 - ... </span>Tallinn University Of Technology, Bacherlor, Informatics
+                <span class="lighter">2017 - ... </span> Tallinn University Of Technology, Bacherlor, Informatics
             </div>
             <div class="row">
                 <span class="lighter">2005 - 2017 </span> Vändra Gymnasium, Secondary Education
@@ -77,6 +77,7 @@
                 </tr>
             </table>
         </div>
+        <div class="footer"></div>
     </div>
 </template>
 
@@ -90,7 +91,7 @@
     export default {
         name: "cv",
         methods: {
-            preload(sk){
+            preload(sk) {
                 this.img = sk.loadImage('cv.png');
             },
             setup(sk) {
@@ -99,7 +100,7 @@
                 sk.noStroke();
                 this.img.loadPixels();
             },
-            draw(sk){
+            draw(sk) {
 
                 this.y++;
                 let randx = sk.floor(sk.random(this.img.width));
@@ -139,6 +140,7 @@
 <style scoped>
     .row {
         padding-bottom: 10px;
+        text-shadow: 1px 1px lightgray;
     }
 
     hr {
@@ -147,14 +149,17 @@
 
     label {
         font-weight: bold;
+        margin-right: 6px;
     }
 
     div {
         margin-left: 10px;
+        font-size: 18px;
     }
 
     .lighter {
-        color: darkgrey;
+        color: white;
+        text-shadow: 1px 1px black;
     }
 
     .greyBackground {
@@ -169,5 +174,13 @@
 
     tr {
         height: 30px;
+    }
+
+    span {
+        margin-right: 10px;
+    }
+
+    .footer {
+        padding-bottom: 60px;
     }
 </style>
